@@ -208,4 +208,22 @@ router.delete("/:_id", handlerCheckPermission, async (req, res) => {
   }
 });
 
+//GET Book details
+router.get("/:_id", handlerCheckPermission, async (req, res) => {
+  try {
+    const _id = req.params._id;
+    const book = await BookModel.findById(_id);
+    if (book) {
+      return res.json({ book });
+    }
+    return res.json({
+      code: 400,
+      errorMess: MESSAGES.BOOK_IS_NOT_EXISTED,
+      data: false,
+    });
+  } catch (err) {
+    return res.json({ code: 400, errorMess: err, data: false });
+  }
+});
+
 export default router;

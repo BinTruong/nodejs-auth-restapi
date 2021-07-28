@@ -42,7 +42,7 @@ acl.allow([
       },
       {
         resources: "/apis/books/:_id",
-        permissions: ["put", "delete"],
+        permissions: ["put", "delete", "get"],
       },
       {
         resources: "/apis/categories/",
@@ -83,7 +83,7 @@ acl.allow([
       },
       {
         resources: "/apis/books/:_id",
-        permissions: ["put", "delete"],
+        permissions: ["put", "delete", "get"],
       },
       {
         resources: "/apis/users/",
@@ -98,6 +98,10 @@ acl.allow([
       //   resources: "/apis/books/paging",
       //   permissions: ["post"],
       // },
+      {
+        resources: "/apis/books/:_id",
+        permissions: ["get"],
+      },
       {
         resources: "/apis/books/home",
         permissions: ["post"],
